@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:rmaterialx/pages/fragment.dart';
 
-class BottomNavigationBasic extends StatefulWidget {
+
+class BottomNavigationSmall extends StatefulWidget {
+
+  static const route = '/bottom_navigation_small';
+
   @override
   _State createState() => _State();
 }
 
-class _State extends State<BottomNavigationBasic> {
+class _State extends State<BottomNavigationSmall> {
 
   PageController _pageController;
-  int _page = 2;
+  int _page = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -19,48 +24,64 @@ class _State extends State<BottomNavigationBasic> {
         controller: _pageController,
         onPageChanged: onPageChanged,
         children: <Widget>[
-//          Chats(),
-//          Friends(),
-//          Home(),
-//          Notifications(),
-//          Profile(),
+          Fragment(),
+          Fragment(),
+          Fragment(),
+          Fragment(),
+          Fragment(),
         ],
       ),
-
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
           // sets the background color of the `BottomNavigationBar`
-          canvasColor: Color(0xFF666666),
+          canvasColor: Color(0xFFFFFFFF),
           // sets the active color of the `BottomNavigationBar` if `Brightness` is light
-          primaryColor: Colors.white,
+          primaryColor: Colors.lightGreen[500],
           textTheme: Theme
               .of(context)
               .textTheme
-              .copyWith(caption: TextStyle(color: Color(0xFF999999)),
+              .copyWith(caption: TextStyle(color: Color(0xFFCCCCCC)),
           ),
         ),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.history,
+                Icons.home,
+                size: 16,
               ),
-              title: Text('Recents'),
+              title: Text('Home')
             ),
-
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.favorite,
+                size: 16,
               ),
-              title: Text('Favorites'),
+                title: Text('Home')
             ),
-
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.location_on,
+                Icons.apps,
+                size: 16,
               ),
-              title: Text('Nearby'),
+                title: Text('Box')
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.notifications,
+                size: 16,
+              ),
+                title: Text('Favorite')
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.shopping_cart,
+                size: 16,
+              ),
+                title: Text('Person')
             ),
           ],
           onTap: navigationTapped,
@@ -77,7 +98,7 @@ class _State extends State<BottomNavigationBasic> {
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(initialPage: 2);
+    _pageController = PageController(initialPage: _page);
   }
 
   @override

@@ -1,5 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:rmaterialx/pages/bottom_navigation_basic.dart';
+import 'package:rmaterialx/pages/bottomnavigation/bottom_navigation_article.dart';
+import 'package:rmaterialx/pages/bottomnavigation/bottom_navigation_basic.dart';
+import 'package:rmaterialx/pages/bottomnavigation/bottom_navigation_dark.dart';
+import 'package:rmaterialx/pages/bottomnavigation/bottom_navigation_icon.dart';
+import 'package:rmaterialx/pages/bottomnavigation/bottom_navigation_light_simple.dart';
+import 'package:rmaterialx/pages/bottomnavigation/bottom_navigation_map_blue.dart';
+import 'package:rmaterialx/pages/bottomnavigation/bottom_navigation_primary.dart';
+import 'package:rmaterialx/pages/bottomnavigation/bottom_navigation_shifting.dart';
+import 'package:rmaterialx/pages/bottomnavigation/bottom_navigation_light.dart';
+import 'package:rmaterialx/pages/bottomnavigation/bottom_navigation_shop.dart';
+import 'package:rmaterialx/pages/bottomnavigation/bottom_navigation_small.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -35,7 +46,17 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(title: 'Flutter Demo Home Page'),
       navigatorKey: navigatorKey,
       routes: <String, WidgetBuilder> {
-        '/bottom_navigation_basic': (_) => new BottomNavigationBasic()
+        BottomNavigationBasic.route: (_) => BottomNavigationBasic(),
+        BottomNavigationShifting.route: (_) => BottomNavigationShifting(),
+        BottomNavigationLight.route: (_) => BottomNavigationLight(),
+        BottomNavigationDark.route: (_) => BottomNavigationDark(),
+        BottomNavigationIcon.route: (_) => BottomNavigationIcon(),
+        BottomNavigationPrimary.route: (_) => BottomNavigationPrimary(),
+        BottomNavigationMapBlue.route: (_) => BottomNavigationMapBlue(),
+        BottomNavigationLightSimple.route: (_) => BottomNavigationLightSimple(),
+        BottomNavigationArticle.route: (_) => BottomNavigationArticle(),
+        BottomNavigationShop.route: (_) => BottomNavigationShop(),
+        BottomNavigationSmall.route: (_) => BottomNavigationSmall(),
       },
     );
   }
@@ -103,8 +124,18 @@ final List<Entry> data = <Entry>[
   Entry('Bottom Navigation',
     icon: Icons.view_column,
     children: <Entry>[
-      Entry('Basic', route: '/bottom_navigation_basic'),
-      Entry('Shifting'),
+      Entry('Basic', route: BottomNavigationBasic.route),
+      Entry('Shifting', route: BottomNavigationShifting.route),
+      Entry('Light', route: BottomNavigationLight.route),
+      Entry('Dark', route: BottomNavigationDark.route),
+      Entry('Icon', route: BottomNavigationIcon.route),
+      Entry('Primary', route: BottomNavigationPrimary.route),
+      Entry('Map Blue', route: BottomNavigationMapBlue.route),
+      Entry('Light Simple', route: BottomNavigationLightSimple.route),
+      Entry('Article', route: BottomNavigationArticle.route),
+      Entry('Shop', route: BottomNavigationShop.route),
+      Entry('Small', route: BottomNavigationSmall.route),
+      Entry('Main', route: BottomNavigationSmall.route),
     ],
   ),
   Entry('Bottom Sheet',
